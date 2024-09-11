@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('petugas_tu', function (Blueprint $table) {
-            $table->id('id_petugas');
-            $table->string('username');
-            $table->string('password');
-            $table->string('nama_petugas');
-            $table->enum('level', ['admin', 'petugas']); 
+        Schema::create('petugas_tus', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('petugas_tu');
+        Schema::dropIfExists('petugas_tus');
     }
 };

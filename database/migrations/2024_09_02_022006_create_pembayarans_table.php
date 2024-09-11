@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id('id_pembayaran');
-            $table->foreignId('id_petugas')->constrained('petugas_tu')->onDelete('cascade');
+            $table->foreignId('PetugasID')->constrained()->references('id_petugas')->on('petugas_tu');
             $table->string('nisn');
             $table->date('tgl_bayar');
             $table->decimal('jumlah_bayar', 10, 2);
             $table->string('tahun_dibayar');
-            $table->foreignId('id_spp')->constrained('spp')->onDelete('cascade');
+            $table->foreignId('SppID')->constrained()->references('id_spp')->on('spp');
             $table->timestamps();
         });
     }
-
+   
     /**
      * Reverse the migrations.
      */
